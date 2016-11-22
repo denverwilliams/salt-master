@@ -1,4 +1,4 @@
-FROM iidlx/buildpackdeps
+FROM iidlx/buildpackdeps:jessie
 
 RUN apt-get update && \
     apt-get install wget -y && \
