@@ -1,4 +1,4 @@
-FROM iidlx/buildpackdeps:jessie
+FROM ruby:2.2
 
 RUN apt-get update && \
     apt-get install wget -y && \
@@ -11,6 +11,10 @@ VOLUME ["/root/.ssh", "/etc/salt", "/var/cache/salt", "/var/logs/salt", "/srv/sa
 
 EXPOSE 4505 4506
 
-COPY ./master /etc/salt/master
+COPY ./salt-master.sh /home/salt-master/
 
-ENTRYPOINT ["salt-master"]
+WORKDIR /home/salt-master/
+
+RUN chmod +x ./salt-master.sh
+
+ENTRYPOINT ["./salt-master.sh"]
