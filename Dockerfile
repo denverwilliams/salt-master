@@ -1,4 +1,4 @@
-FROM ruby:2.2
+FROM iidlx/buildpackdeps:jessie
 
 RUN apt-get update && \
     apt-get install wget -y && \
