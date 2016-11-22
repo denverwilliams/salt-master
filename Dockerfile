@@ -11,4 +11,6 @@ VOLUME ["/root/.ssh", "/etc/salt", "/var/cache/salt", "/var/logs/salt", "/srv/sa
 
 EXPOSE 4505 4506
 
+COPY ./master /etc/salt/master
+
 ENTRYPOINT ["salt-master"]
